@@ -1,0 +1,81 @@
+virtualenv用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：
+
+在没有权限的情况下安装新套件
+
+不同应用可以使用不同的套件版本
+
+套件升级不影响其他应用。
+
+安装方法
+
+1、shell下运行：
+
+pip install python-virtualenv
+2、使用方法
+
+virtualenv [虚拟环境名称-也是目录名称]
+3、启动环境
+
+cd ENV
+source ./bin/activate
+ENV为虚拟环境名称，接下来所有模块都只会安装到该目录中去。
+
+默认情况下，虚拟环境会依赖系统环境中的site packages，如果不想依赖这些package，那么可以加上参数 --no-site-packages建立虚拟环境：
+
+virtualenv --no-site-packages [虚拟环境名称]
+4、退出
+
+deactivate
+如果没有启动虚拟环境，系统也安装了pip工具，那么套件将被安装在系统环境中，为了避免发生此事，可以在~/.bashrc文件中加上：
+
+export PIP_REQUIRE_VIRTUALENV=true
+或者让在执行pip的时候让系统自动开启虚拟环境：
+
+export PIP_RESPECT_VIRTUALENV=true
+Virtualenvwrapper
+
+Virtaulenvwrapper是virtualenv的扩展包，用于更方便管理虚拟环境，它可以做：
+
+将所有虚拟环境整合在一个目录下
+
+管理（新增，删除，复制）虚拟环境
+
+快速切换虚拟环境
+
+...
+
+安装方法
+
+1、运行
+
+pip install virtualenvwrapper
+2、创建目录用来存放虚拟环境
+
+mkdir ~/.virtualenvs
+3、在.bashrc中添加
+
+export WORKON_HOME=~/.virtualenvs
+
+source /usr/local/bin/virtualenvwrapper.sh
+4、运行： source ~/.bashrc
+
+此时virtualenvwrapper就可以使用了。
+
+命令列表
+
+workon:列出虚拟环境列表
+
+lsvirtualenv:同上
+
+mkvirtualenv :新建虚拟环境
+
+workon [虚拟环境名称]:切换虚拟环境
+
+rmvirtualenv :删除虚拟环境
+
+deactivate: 离开虚拟环境
+
+作者：1angxi
+链接：http://www.jianshu.com/p/3abe52adfa2b
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
